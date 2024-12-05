@@ -1,0 +1,10 @@
+
+.content{
+    background: rgba(0, 0, 255, 0.655);
+    width: 400px;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 999;
+    right: 0;
+}
