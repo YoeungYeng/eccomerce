@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./css/responsive.css";
 import "./css/style.css";
 import "./css/bootstrap.css";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 import "./css/font-awesome.min.css";
 import Footer from "./pages/Footer";
 import Product from "./pages/Product";
@@ -15,6 +17,8 @@ import ProductDetail from "./pages/ProductDetail";
 // import "./js/custom";
 import CartCheckout from "./components/CartCheckout";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+
+
 
 const App = () => {
   // window.$ = window.jQuery = $;
@@ -36,6 +40,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<CartCheckout />} />
           </Routes>
+          <Footer />
         </Router>
       </PayPalScriptProvider>
 

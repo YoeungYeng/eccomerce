@@ -40,6 +40,7 @@ const productsSlice = createSlice({
     productDetailStatus: "idle", // Status for fetching product details
     productsError: null, // Error for products
     productDetailError: null, // Error for product detail
+    
   },
   extraReducers: (builder) => {
     // Fetch all products

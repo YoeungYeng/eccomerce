@@ -28,7 +28,7 @@ const Header = () => {
         <div className="container">
           <nav className="navbar navbar-expand-lg custom_nav-container">
             <a className="navbar-brand" href="index.html">
-              <img width="250" src={logo} alt="Logo" />
+              <img width="250" src={logo} alt="Logo"  style={{width: "100px", height: "100px"}} />
             </a>
             <button
               className="navbar-toggler"

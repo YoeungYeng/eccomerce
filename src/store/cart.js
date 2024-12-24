@@ -4,10 +4,11 @@ import { toast } from "react-toastify";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    items: JSON.parse(localStorage.getItem("cartItems")) || [],
+    items:  [],
     statueTab: false,
     totalQuality: 0,
     totalAmount: 0,
+    searchResults: [],
   },
   reducers: {
     addToCart: (state, action) => {
@@ -37,7 +38,7 @@ const cartSlice = createSlice({
       );
 
       // Update localStorage
-      localStorage.setItem("cartItems", JSON.stringify(state.items));
+      // localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
     removeFromCart: (state, action) => {
       const id = action.payload;
@@ -59,7 +60,7 @@ const cartSlice = createSlice({
       );
 
       // Update localStorage
-      localStorage.setItem("cartItems", JSON.stringify(state.items));
+      // localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
     increase: (state, action) => {
       const cartItem = state.items.find(
@@ -116,6 +117,13 @@ const cartSlice = createSlice({
       // Update localStorage
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
+    // Action to filter products by search term
+    searchProduct: (state, action) =>{
+      const searchIterm = action.payload.toLowerCase();
+      state.searchResults = state.items.filter((product) =>(
+        product.title.toLowerCase().includes(searchIterm)
+      ))
+    }
   },
 });
 
@@ -125,6 +133,7 @@ export const {
   toggleStatusTab,
   increase,
   dincrease,
+  searchProduct
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -5,7 +5,7 @@ const PaymentButton = ({ totalAmount, onPaymentSuccess, onPaymentError }) => {
     const loadPayPalScript = async () => {
       if (!window.paypal) {
         const script = document.createElement('script');
-        script.src = `https://www.paypal.com/sdk/js?client-id=ATxprEYw_HDrLtUPY2zQJ_PKZkf3nwUezlKTaTtVXzAT76I5OgqNSRMiBAeEgdrRC3Le85nZ1Huhrbci&buyer-country=US&currency=USD&components=buttons`;
+        script.src = `https://www.paypal.com/sdk/js?client-id=AYWyoOuFa6fnuxgF-u8P6__woDKS4LgGohw8Pph1YRfK7ek4RZ9pX-j8ltbNbj93NdIh4MMiIRplCgOf&buyer-country=US&currency=USD&components=buttons`;
         script.async = true;
         script.onload = initializePayPalButtons;
         script.onerror = () => onPaymentError(new Error('Failed to load PayPal SDK'));

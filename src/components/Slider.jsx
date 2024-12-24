@@ -1,63 +1,48 @@
-import React, { useEffect } from "react";
-import slide1 from "../assets/images/arrival-bg.jpg";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { Carousel } from 'react-bootstrap';
+import slider1 from "../assets/images/demo_img_1.jpg";
+import slider2 from "../assets/images/slide-2.jpg";
+import slider3 from "../assets/images/slide3.jpg";
 
 const Slider = () => {
-  const dispatch = useDispatch();
-
-  // select data from api
-  const { products, productsStatus } = useSelector((state) => state.products);
-  // fetch api
-  useEffect(() => {
-    if (productsStatus === "idle") {
-      dispatch(fetchProducts());
-    }
-  }, [dispatch, productsStatus]);
-
-  if (productsStatus === "loading") {
-    return <p>Loading...</p>;
-  }
-
-  if (productsStatus === "failure") {
-    console.error("Error fetching products:", productsError);
-    return <p>Error: {productsError || "Failed to load products"}</p>;
-  }
   return (
-    <div
-      id="carouselExampleIndicators"
-      class="carousel slide"
-      data-ride="carousel"
-    >
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src={slide1} alt="First slide" />
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src={slide1} alt="Second slide" />
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src={slide1} alt="Third slide" />
-        </div>
-      </div>
-      <a
-        class="carousel-control-prev"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a
-        class="carousel-control-next"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+    <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={slider1}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>First Slide Label</h3>
+          <p>Some representative placeholder content for the first slide.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={slider2}
+          alt="Second slide"
+        />
+        <Carousel.Caption>
+          <h3>Second Slide Label</h3>
+          <p>Some representative placeholder content for the second slide.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={slider3}
+          alt="Third slide"
+        />
+        <Carousel.Caption>
+          <h3>Third Slide Label</h3>
+          <p>Some representative placeholder content for the third slide.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
   );
 };
 

@@ -21,7 +21,11 @@ const ProductDetail = () => {
     return <p>Invalid product. Please check the URL.</p>;
   }
   
-  if (productDetailStatus === "loading") return <p>Loading product details...</p>;
+  if (productDetailStatus === "loading") return (
+    <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+      <p>Loading product details...</p>
+    </div>
+  );
   if (productDetailStatus === "failed") return <p>Error: {error}</p>;
   
   

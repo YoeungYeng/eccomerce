@@ -14,6 +14,7 @@ const Home = () => {
   return (
     <div>
       <NavBar />
+      
       <FreeShipping />
       <NewArrivals />
       <NewProduct />
